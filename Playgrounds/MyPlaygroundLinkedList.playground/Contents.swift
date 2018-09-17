@@ -74,7 +74,8 @@ list.insert(node: root2)
 list.insert(node: second2)
 list.insert(node: third2)
 list.insert(node: fourth2)
-list.printNodes()
+let nodes = list.printNodes()
+print(nodes)
 
 /// Reverse a linked list
 ///
@@ -108,7 +109,7 @@ while reversedNode?.next != nil {
 print(reversedNode?.value ?? "unknown")
 print("... done printing linked list")
 
-/// A simple queue implemented using a linked list.
+/// A simple queue implementation using a linked list.
 class Queue {
     var root: Node?
     var count = 0
@@ -169,7 +170,7 @@ queue.enqueue(node: fourth3)
 queue.printNodes() // returns 5 9 2 8
 queue.count // returns 4
 let de = queue.dequeue()
-print("printing value of node that was dequeued = \(String(describing: de?.value))") // prints 5
+print("printing value of node that was dequeued = \(String(describing: de!.value))") // prints 5
 queue.printNodes() // returns 9 2 8
 queue.count // returns 3
 
@@ -237,5 +238,5 @@ stack.push(node: third4)
 stack.push(node: fourth4)
 stack.printNodes() // returns 5 9 2 8
 let se = stack.pop()
-print("printing value of node that was popped from stack = \(String(describing: se?.value))") // prints 8
+print("printing value of node that was popped from stack = \(String(describing: se!.value))") // prints 8
 stack.printNodes() // returns 5 9 2
