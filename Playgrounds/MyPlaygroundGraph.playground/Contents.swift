@@ -1,6 +1,7 @@
 // John Ngoi
 // Graph
 
+/// Simple vertex class.
 class Vertex {
     var key: String?
     var neighbors: [Edge]
@@ -15,6 +16,7 @@ class Vertex {
     }
 }
 
+/// Simple edge class.
 class Edge {
     var neighbor: Vertex
     var weight: Int
@@ -25,8 +27,8 @@ class Edge {
     }
 }
 
+/// Simple graph class.
 class Graph {
-    
     var canvas: [Vertex]
     var isDirected: Bool
     
@@ -60,35 +62,17 @@ class Graph {
             neighbor.neighbors.append(reverseEdge)
         }
     }
-    
-    func shortestPath (from: Vertex, to: Vertex) -> [Vertex]? {
-        
-        
-        
-        return nil
-    }
 }
 
 // test your graph code
 let graph = Graph()
-let vertex1 = graph.addVertex("G")
-let vertex2 = graph.addVertex("H")
-let vertex3 = graph.addVertex("A")
-let vertex4 = graph.addVertex("C")
-let vertex5 = graph.addVertex("Z")
-graph.addEdge(vertex1, neighbor: vertex2, weight: 5)
-graph.addEdge(vertex1, neighbor: vertex3, weight: 1)
-graph.addEdge(vertex1, neighbor: vertex5, weight: 11)
-graph.addEdge(vertex2, neighbor: vertex4, weight: 1)
-graph.addEdge(vertex4, neighbor: vertex5, weight: 2)
-
-
-
-
-
-
-
-
-
-
-
+let vertex1 = graph.addVertex(key: "G")
+let vertex2 = graph.addVertex(key: "H")
+let vertex3 = graph.addVertex(key: "A")
+let vertex4 = graph.addVertex(key: "C")
+let vertex5 = graph.addVertex(key: "Z")
+graph.addEdge(source: vertex1, neighbor: vertex2, weight: 5)
+graph.addEdge(source: vertex1, neighbor: vertex3, weight: 1)
+graph.addEdge(source: vertex1, neighbor: vertex5, weight: 11)
+graph.addEdge(source: vertex2, neighbor: vertex4, weight: 1)
+graph.addEdge(source: vertex4, neighbor: vertex5, weight: 2)
