@@ -22,7 +22,7 @@ func twoSum (numbers: [Int], sum: Int) -> [Int]? {
 
 // let's test!
 let test = [2, 6, 9, 5, 10, -7]
-let result1 = twoSum(test, sum: 15) // returns [9, 6]
-let result2 = twoSum(test, sum: 3) // returns [-7, 10]
-let result3 = twoSum(test, sum: 22) // returns nil
+let result1 = twoSum(numbers: test, sum: 15) // returns [9, 6]
+let result2 = twoSum(numbers: test, sum: 3) // returns [-7, 10]
+let result3 = twoSum(numbers: test, sum: 22) // returns nil
 
