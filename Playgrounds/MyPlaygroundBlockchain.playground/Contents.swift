@@ -82,7 +82,11 @@ class Blockchain {
             hash = lastBlock().hash()
         }
         
-        let block = Block(proof: proof, index: (chain.count + 1), timestamp: Date(), transactions: currentTransactions, previousHash: hash)
+        let block = Block(proof: proof,
+                          index: (chain.count + 1),
+                          timestamp: Date(),
+                          transactions: currentTransactions,
+                          previousHash: hash)
         
         currentTransactions = []
         
@@ -183,7 +187,7 @@ class BlockchainServer {
     }
 }
 
-// Test the blockchain implementation!
+// Test the blockchain implementation by mining for coins!
 
 let server = BlockchainServer()
 
@@ -193,24 +197,21 @@ func updateChain() {
     for block in chain {
         text.append(block.description() + "\n")
     }
-    print(text)
+    print("\(#function) --> \(text)")
 }
 
 func sendTransaction(amount: Int) {
     let index = server.send(sender: "me", recipient: "someone", amount: amount)
-    let text = "Transaction added to block \(index)"
-    print(text)
+    print("Transaction added to block \(index)")
     updateChain()
 }
 
 func mineForCoin(completion: ((Block) -> Void)?) {
     let startTime = CACurrentMediaTime()
-    let text = "Mining ..."
-    print(text)
+    print("Mining ...")
     
     server.mine(recipient: "me") { (block) in
-        let text = "New block forged, it took \(CACurrentMediaTime() - startTime) seconds"
-        print(text)
+        print("***** New block forged, it took \(CACurrentMediaTime() - startTime) seconds")
         print("\(block.description())")
         updateChain()
         completion?(block)
@@ -220,14 +221,9 @@ func mineForCoin(completion: ((Block) -> Void)?) {
 updateChain()
 
 sendTransaction(amount: 3)
-
 sendTransaction(amount: 5)
-
 sendTransaction(amount: 1)
 
 mineForCoin { (block) in
-    mineForCoin(completion: { (block) in
-        
-    })
 }
 
