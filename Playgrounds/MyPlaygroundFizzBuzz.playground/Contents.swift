@@ -28,6 +28,6 @@ func fizzBuzz (n: Int) -> String {
     return results
 }
 
-let test1 = fizzBuzz(31)
+let test1 = fizzBuzz(n: 31)
 print(test1)
 
