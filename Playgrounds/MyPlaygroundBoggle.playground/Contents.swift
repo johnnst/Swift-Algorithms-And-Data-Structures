@@ -1,4 +1,10 @@
-// John Ngoi
+// Author: John Ngoi
+// Book: Interviewing in Swift:
+// Algorithms and Data Structures:
+// Your guide in helping you prepare for the real world of software engineering interviews as an iOS or Mac OS developer.
+// Available on Amazon and Kindle! Search for "john ngoi" to find the book!
+// ASIN: B01L8DY5H6
+//
 // Boggle, find all possible words in a board of characters
 // Given a dictionary, and a M x N board with a character in each cell, find all possible words that can be formed by a sequence of adjacent characters.
 // We can move in any of the 8 adjacent characters but a word should not have multiple instances of same cell.
@@ -20,11 +26,11 @@ class Trie {
     var root: TrieNode = TrieNode(letter: "\0", isWord: false)
     
     func insertWord (word: String) {
-        let wordLength = word.characters.count
+        let wordLength = word.count
         var currentNode: TrieNode? = root
         var letterCounter = 0
         
-        for letter in word.characters {
+        for letter in word {
             letterCounter = letterCounter + 1
             
             let isWord = letterCounter == wordLength ? true : false
@@ -37,12 +43,12 @@ class Trie {
     }
     
     func find (key: String) -> String? {
-        let keyLength = key.characters.count
+        let keyLength = key.count
         
         var currentNode: TrieNode? = self.root
         var characterCount = 0
         
-        for character in key.characters {
+        for character in key {
             currentNode = currentNode!.children[character]
             
             if currentNode == nil {
@@ -62,13 +68,13 @@ class Trie {
 
 // test your trie
 var trie: Trie = Trie()
-trie.insertWord("nicolas")
-trie.insertWord("nighthawk")
-trie.find("nicolas")
-trie.find("john")
-trie.find("nighthawk")
-trie.insertWord("lilian")
-trie.find("lilian")
+trie.insertWord(word: "nicolas")
+trie.insertWord(word: "nighthawk")
+trie.find(key: "nicolas")
+trie.find(key: "john")
+trie.find(key: "nighthawk")
+trie.insertWord(word: "lilian")
+trie.find(key: "lilian")
 
 // solving Boggle using a trie
 
@@ -80,10 +86,10 @@ let boggle = [["T", "F", "F"],
 
 // first add the words to the trie
 var wordsTrie = Trie()
-wordsTrie.insertWord("THIS")
-wordsTrie.insertWord("IS")
-wordsTrie.insertWord("FUN")
-wordsTrie.insertWord("STUFF")
+wordsTrie.insertWord(word: "THIS")
+wordsTrie.insertWord(word: "IS")
+wordsTrie.insertWord(word: "FUN")
+wordsTrie.insertWord(word: "STUFF")
 
 // once we loaded up our trie with words, implement the find function
 func findWords (boggle: [[String]]) -> [String]? {
@@ -93,10 +99,10 @@ func findWords (boggle: [[String]]) -> [String]? {
     var queue = [(x: Int, y: Int, prefix: String, node: TrieNode)]()
     
     // setup the initial queue
-    for (i, col) in boggle.enumerate() {
-        for (j, char) in col.enumerate() {
+    for (i, col) in boggle.enumerated() {
+        for (j, char) in col.enumerated() {
             if let node = wordsTrie.root.children[Character(char)] {
-                queue.append(x: i, y: j, prefix: char, node: node)
+                queue.append((x: i, y: j, prefix: char, node: node))
             }
         }
     }
@@ -123,8 +129,4 @@ func findWords (boggle: [[String]]) -> [String]? {
     return words
 }
 
-findWords(boggle) // returns ["IS", "FUN", "THIS"]
-
-
-
-
+findWords(boggle: boggle) // returns ["IS", "FUN", "THIS"]
