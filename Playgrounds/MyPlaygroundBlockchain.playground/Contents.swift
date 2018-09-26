@@ -1,5 +1,12 @@
-// Blockchain
 // Author: John Ngoi
+// Book: Interviewing in Swift:
+// Algorithms and Data Structures:
+// Your guide in helping you prepare for the real world of software engineering interviews as an iOS or Mac OS developer.
+// Available on Amazon and Kindle! Search for "john ngoi" to find the book!
+// ASIN: B01L8DY5H6
+//
+// Simple implementation of a cryptocurrency using blockchain.
+//
 
 import Foundation
 import UIKit

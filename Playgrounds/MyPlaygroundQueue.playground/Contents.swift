@@ -1,4 +1,11 @@
-//: Playground - noun: a place where people can play
+// Author: John Ngoi
+// Book: Interviewing in Swift:
+// Algorithms and Data Structures:
+// Your guide in helping you prepare for the real world of software engineering interviews as an iOS or Mac OS developer.
+// Available on Amazon and Kindle! Search for "john ngoi" to find the book!
+// ASIN: B01L8DY5H6
+//
+// Queue
 
 import UIKit
 
@@ -29,10 +36,9 @@ class Queue {
 }
 
 let q2 = Queue()
-q2.enqueue(5)
-q2.enqueue(9)
-q2.enqueue(3)
+q2.enqueue(value: 5)
+q2.enqueue(value: 9)
+q2.enqueue(value: 3)
 print(q2.qu) // prints [5, 9, 3]
 let v2 = q2.dequeue()
 print(q2.qu) // prints [9, 3]
-

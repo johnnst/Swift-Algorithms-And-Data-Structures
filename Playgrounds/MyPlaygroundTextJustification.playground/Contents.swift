@@ -1,4 +1,10 @@
-// John Ngoi
+// Author: John Ngoi
+// Book: Interviewing in Swift:
+// Algorithms and Data Structures:
+// Your guide in helping you prepare for the real world of software engineering interviews as an iOS or Mac OS developer.
+// Available on Amazon and Kindle! Search for "john ngoi" to find the book!
+// ASIN: B01L8DY5H6
+//
 // Text justification
 // Given a string of words and a max length, L, format the text such that each line has exactly L characters and is fully left and right justified.
 // Restrictions:
