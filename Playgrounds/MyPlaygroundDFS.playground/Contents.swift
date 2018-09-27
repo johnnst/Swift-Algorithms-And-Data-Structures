@@ -1,4 +1,10 @@
-// John Ngoi
+// Author: John Ngoi
+// Book: Interviewing in Swift:
+// Algorithms and Data Structures:
+// Your guide in helping you prepare for the real world of software engineering interviews as an iOS or Mac OS developer.
+// Available on Amazon and Kindle! Search for "john ngoi" to find the book!
+// ASIN: B01L8DY5H6
+//
 // Depth First Search (DFS)
 // Simple implementation of DFS
 // Given a directed graph, find the farthest node from a given node.
@@ -68,6 +74,4 @@ node8.neighbors.append(node9)
 // can you visualize the above graph? See Appendix A.
 // Hint: It's OK to use a pen and paper to draw this out!
 
-let result = dfs(node1) // returns 4, node9
-
-
+let result = dfs(from: node1) // returns 4, node9

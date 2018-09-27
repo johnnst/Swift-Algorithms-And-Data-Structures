@@ -1,4 +1,10 @@
-// John Ngoi
+// Author: John Ngoi
+// Book: Interviewing in Swift:
+// Algorithms and Data Structures:
+// Your guide in helping you prepare for the real world of software engineering interviews as an iOS or Mac OS developer.
+// Available on Amazon and Kindle! Search for "john ngoi" to find the book!
+// ASIN: B01L8DY5H6
+//
 // Shortest Path using Dijkstra's algorithm
 // Given a directed graph, find the shortest path distance between two vertices
 //
@@ -95,19 +101,16 @@ class Graph {
 
 // let's test!
 let graph = Graph()
-let vertex1 = graph.addVertex("G")
-let vertex2 = graph.addVertex("H")
-let vertex3 = graph.addVertex("A")
-let vertex4 = graph.addVertex("C")
-let vertex5 = graph.addVertex("Z")
-graph.addEdge(vertex1, neighbor: vertex2, weight: 5)
-graph.addEdge(vertex1, neighbor: vertex3, weight: 1)
-graph.addEdge(vertex1, neighbor: vertex5, weight: 11)
-graph.addEdge(vertex2, neighbor: vertex4, weight: 1)
-graph.addEdge(vertex4, neighbor: vertex5, weight: 2)
+let vertex1 = graph.addVertex(key: "G")
+let vertex2 = graph.addVertex(key: "H")
+let vertex3 = graph.addVertex(key: "A")
+let vertex4 = graph.addVertex(key: "C")
+let vertex5 = graph.addVertex(key: "Z")
+graph.addEdge(source: vertex1, neighbor: vertex2, weight: 5)
+graph.addEdge(source: vertex1, neighbor: vertex3, weight: 1)
+graph.addEdge(source: vertex1, neighbor: vertex5, weight: 11)
+graph.addEdge(source: vertex2, neighbor: vertex4, weight: 1)
+graph.addEdge(source: vertex4, neighbor: vertex5, weight: 2)
 
-let result = graph.shortestPathCost(vertex1, to: vertex5) // returns 8
+let result = graph.shortestPathCost(from: vertex1, to: vertex5) // returns 8
 // there are two paths to "Z", one cost 8, one cost 11
-
-
-

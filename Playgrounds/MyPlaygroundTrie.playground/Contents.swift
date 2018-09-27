@@ -1,54 +1,110 @@
-//: Playground - noun: a place where people can play
+// Author: John Ngoi
+// Book: Interviewing in Swift:
+// Algorithms and Data Structures:
+// Your guide in helping you prepare for the real world of software engineering interviews as an iOS or Mac OS developer.
+// Available on Amazon and Kindle! Search for "john ngoi" to find the book!
+// ASIN: B01L8DY5H6
+//
+// Trie
 
-import UIKit
+import Foundation
 
-// trie node
-
+/// Simple trie node class.
 class TrieNode {
     var char: Character = "\0" // that's a null character
     var isWord = false // very important to flag a node as a word
-    var children = [Character: TrieNode]() // the magic sauce
+    private var children = [Character: TrieNode]() // the magic sauce, set to private to avoid accidents
     
     init (char: Character, isWord: Bool) {
         self.char = char
         self.isWord = isWord
     }
+    
+    func getChildren() -> [Character: TrieNode] {
+        return children
+    }
+    
+    func getChild(for char: Character) -> TrieNode? {
+        if let child = self.children[char] {
+            return child
+        }
+        return nil
+    }
+    
+    func addChild(for char: Character, isWord: Bool) {
+        if children[char] == nil {
+            children[char] = TrieNode(char: char, isWord: isWord)
+        }
+    }
+    
+    func update(isWord: Bool) {
+        self.isWord = isWord
+    }
+    
 }
 
+/// A simple trie class.
 class Trie {
     var root = TrieNode(char: "\0", isWord: false)
     
+    /// Inserts the word into the trie.
+    ///
+    /// - Parameter word: Text to be inserted.
     func insert (word: String) {
-        if word.characters.count > 0 { // protect your trie, don't allow zero characters
+        if word.count > 0 { // protect your trie, don't allow zero characters
             var currentNode: TrieNode = self.root
-            let wordLength = word.characters.count
-            for (index, char) in word.characters.enumerate() {
-                if currentNode.children[char] == nil {
-                    let isWord = wordLength == (index + 1) ? true : false
-                    currentNode.children[char] = TrieNode(char: char, isWord: isWord)
+            for (index, char) in word.enumerated() {
+                let isWord = word.count == (index + 1) ? true : false
+                if let childNode = currentNode.getChild(for: char) {
+                    if isWord {
+                        childNode.update(isWord: true)
+                        break
+                    }
                 } else {
-                    continue // found a node, continue the traversal
+                    currentNode.addChild(for: char, isWord: isWord)
                 }
-                currentNode = currentNode.children[char]!
+                currentNode = currentNode.getChild(for: char)!
             }
         }
     }
     
+    /// Look up a word from the trie.
+    ///
+    /// - Parameter word: Text to look up.
+    /// - Returns: (true) if found; (false) if not.
     func find (word: String) -> Bool {
-        if word.characters.count > 0 {
+        if word.count > 0 {
             var currentNode: TrieNode = self.root
-            for char in word.characters {
-                if currentNode.children[char] == nil {
-                    return false // word is not in trie
-                } else {
-                    if currentNode.children[char]!.isWord == true {
-                        return true
-                    } else {
-                        currentNode = currentNode.children[char]!
+            for (index, char) in word.enumerated() {
+                print("""
+                    
+                    find word stats
+                    index = \(index)
+                    char = \(char)
+                    currentNode.char = \(currentNode.char)
+                    currentNode.isWord = \(currentNode.isWord)
+                    """)
+                if let childNode = currentNode.getChild(for: char) {
+                    print("""
+                        childNode.char = \(childNode.char)
+                        childNode.isWord = \(childNode.isWord)
+                        """)
+                    if index == (word.count - 1) {
+                        if childNode.isWord == true {
+                            print("found word \(word)")
+                            return true
+                        }
                     }
+                } else {
+                    print("did not find \(word)")
+                    return false
+                }
+                if let childNode = currentNode.getChild(for: char) {
+                    currentNode = childNode
                 }
             }
         }
+        print("did not find \(word)")
         return false
     }
 }
@@ -56,10 +112,22 @@ class Trie {
 // let's test the trie
 
 let trie = Trie()
-trie.insert("john")
-trie.find("john") // returns true
-trie.find("jon") // returns false
-trie.find("lilian") // returns false
-trie.insert("lilian")
-trie.find("lilian") // returns true
-
+trie.insert(word: "john")
+trie.find(word: "john") // returns true
+trie.find(word: "jon") // returns false
+trie.find(word: "lilian") // returns false
+trie.insert(word: "lilian")
+trie.find(word: "lilian") // returns true
+trie.find(word: "lillian") // returns false
+trie.insert(word: "jonathan")
+trie.insert(word: "joel")
+trie.find(word: "john") // returns true
+trie.find(word: "jon") // returns false
+trie.find(word: "jonathen") // returns false
+trie.find(word: "joel") // returns true
+trie.find(word: "jonathan") // returns true
+trie.find(word: "james") // returns false
+trie.insert(word: "jim")
+trie.insert(word: "james")
+trie.find(word: "jimbo") // returns false
+trie.find(word: "james") // returns true

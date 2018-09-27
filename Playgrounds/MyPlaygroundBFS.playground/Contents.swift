@@ -1,4 +1,10 @@
-// John Ngoi
+// Author: John Ngoi
+// Book: Interviewing in Swift:
+// Algorithms and Data Structures:
+// Your guide in helping you prepare for the real world of software engineering interviews as an iOS or Mac OS developer.
+// Available on Amazon and Kindle! Search for "john ngoi" to find the book!
+// ASIN: B01L8DY5H6
+//
 // Breadth First Search (BFS)
 // Simple implementation of BFS
 // Given a graph of nodes (directed), find the number of nodes it will take from one node to another, do not count the starting node
@@ -64,8 +70,4 @@ node8.neighbors.append(node9)
 // can you visualize the above graph? See Appendix A.
 // Hint: It's OK to use a pen and paper to draw this out!
 
-let result = bfs(node1, to: node7) // returns 3
-
-
-
-
+let result = bfs(from: node1, to: node7) // returns 3

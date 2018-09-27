@@ -1,4 +1,10 @@
-// John Ngoi
+// Author: John Ngoi
+// Book: Interviewing in Swift:
+// Algorithms and Data Structures:
+// Your guide in helping you prepare for the real world of software engineering interviews as an iOS or Mac OS developer.
+// Available on Amazon and Kindle! Search for "john ngoi" to find the book!
+// ASIN: B01L8DY5H6
+//
 // FizzBuzz
 // Write a function that prints the numbers from 1 to n.
 // But for multiples of 3, print "Fizz" instead.
@@ -28,6 +34,6 @@ func fizzBuzz (n: Int) -> String {
     return results
 }
 
-let test1 = fizzBuzz(31)
+let test1 = fizzBuzz(n: 31)
 print(test1)
 

@@ -1,7 +1,13 @@
-// John Ngoi
+// Author: John Ngoi
+// Book: Interviewing in Swift:
+// Algorithms and Data Structures:
+// Your guide in helping you prepare for the real world of software engineering interviews as an iOS or Mac OS developer.
+// Available on Amazon and Kindle! Search for "john ngoi" to find the book!
+// ASIN: B01L8DY5H6
+//
 // Linked List
 
-// Basic Node
+/// Linked list node.
 class Node {
     var value: Int
     var next: Node?
@@ -24,18 +30,17 @@ second.next = third
 third.next = fourth
 
 // to test, you can see if you can print all the values from the node starting from the first node
-
 var currentNode = root
+print("printing a linked list ...")
 while currentNode.next != nil {
     print("\(currentNode.value)")
     currentNode = currentNode.next!
 }
 print("\(currentNode.value)")
+print("... done printing linked list")
 
-// create a linked list class
-
+/// A simple linked list class.
 class LinkedList {
-    
     var root: Node?
     
     func insert (node: Node) {
@@ -71,13 +76,17 @@ let root2 = Node(value: 5, next: nil)
 let second2 = Node(value: 9, next: nil)
 let third2 = Node(value: 2, next: nil)
 let fourth2 = Node(value: 8, next: nil)
-list.insert(root2)
-list.insert(second2)
-list.insert(third2)
-list.insert(fourth2)
-list.printNodes()
+list.insert(node: root2)
+list.insert(node: second2)
+list.insert(node: third2)
+list.insert(node: fourth2)
+let nodes = list.printNodes()
+print(nodes)
 
-// reverse linked list
+/// Reverse a linked list
+///
+/// - Parameter root: The root node of a linked list.
+/// - Returns: The new root node of the reversed linked list.
 func reverseLinkedList (root: Node?) -> Node? {
     if root == nil {
         return nil
@@ -96,19 +105,18 @@ func reverseLinkedList (root: Node?) -> Node? {
     return previousNode
 }
 
-var reversedNode = reverseLinkedList(root)
+var reversedNode = reverseLinkedList(root: root)
 // test the linked list by printing them in the new order
+print("printing a linked list that was reversed ...")
 while reversedNode?.next != nil {
-    print(reversedNode?.value)
+    print(reversedNode?.value ?? "unknown")
     reversedNode = reversedNode?.next!
 }
-print(reversedNode?.value)
+print(reversedNode?.value ?? "unknown")
+print("... done printing linked list")
 
-
-// Implement a Queue using Linked List
-
+/// A simple queue implementation using a linked list.
 class Queue {
-    
     var root: Node?
     var count = 0
     
@@ -161,22 +169,19 @@ let root3 = Node(value: 5, next: nil)
 let second3 = Node(value: 9, next: nil)
 let third3 = Node(value: 2, next: nil)
 let fourth3 = Node(value: 8, next: nil)
-queue.enqueue(root3)
-queue.enqueue(second3)
-queue.enqueue(third3)
-queue.enqueue(fourth3)
+queue.enqueue(node: root3)
+queue.enqueue(node: second3)
+queue.enqueue(node: third3)
+queue.enqueue(node: fourth3)
 queue.printNodes() // returns 5 9 2 8
 queue.count // returns 4
 let de = queue.dequeue()
-print(de?.value) // prints 5
+print("printing value of node that was dequeued = \(String(describing: de!.value))") // prints 5
 queue.printNodes() // returns 9 2 8
 queue.count // returns 3
 
-
-// Implement a Stack using Linked List
-
+/// Stack implemented using a linked list.
 class Stack {
-    
     var root: Node?
     var count = 0
     
@@ -233,12 +238,11 @@ let root4 = Node(value: 5, next: nil)
 let second4 = Node(value: 9, next: nil)
 let third4 = Node(value: 2, next: nil)
 let fourth4 = Node(value: 8, next: nil)
-stack.push(root4)
-stack.push(second4)
-stack.push(third4)
-stack.push(fourth4)
+stack.push(node: root4)
+stack.push(node: second4)
+stack.push(node: third4)
+stack.push(node: fourth4)
 stack.printNodes() // returns 5 9 2 8
 let se = stack.pop()
-print(se?.value) // prints 8
+print("printing value of node that was popped from stack = \(String(describing: se!.value))") // prints 8
 stack.printNodes() // returns 5 9 2
-

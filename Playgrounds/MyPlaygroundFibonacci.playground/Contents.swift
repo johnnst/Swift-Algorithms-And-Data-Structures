@@ -1,4 +1,10 @@
-// John Ngoi
+// Author: John Ngoi
+// Book: Interviewing in Swift:
+// Algorithms and Data Structures:
+// Your guide in helping you prepare for the real world of software engineering interviews as an iOS or Mac OS developer.
+// Available on Amazon and Kindle! Search for "john ngoi" to find the book!
+// ASIN: B01L8DY5H6
+//
 // Fibonacci
 // Write a function that calculates for Fibonacci given a number n.
 // For example, below is a Fibonacci series
@@ -13,10 +19,10 @@ func fibonacciRecursive (n: Int) -> Int {
     if n == 1 {
         return 1
     }
-    return fibonacciRecursive(n - 1) + fibonacciRecursive(n - 2)
+    return fibonacciRecursive(n: n - 1) + fibonacciRecursive(n: n - 2)
 }
 
-let test1 = fibonacciRecursive(10)
+let test1 = fibonacciRecursive(n: 10)
 
 // iterative, O(n)
 func fibonacciIterative (n: Int) -> Int {
@@ -38,8 +44,8 @@ func fibonacciIterative (n: Int) -> Int {
     return sum
 }
 
-let test2 = fibonacciIterative(2)
-let test3 = fibonacciIterative(10)
+let test2 = fibonacciIterative(n: 2)
+let test3 = fibonacciIterative(n: 10)
 
 // memoize, using a dictionary as the secret sauce to improve the recursive performance
 // performance is around O(n)
@@ -48,24 +54,17 @@ func fibonacciMemoize(n: Int) -> Int {
     if let value = map[n] {
         return value
     } else {
-        let f = fibonacciMemoize(n - 1) + fibonacciMemoize(n - 2)
+        let f = fibonacciMemoize(n: n - 1) + fibonacciMemoize(n: n - 2)
         map[n] = f
         return f
     }
 }
 
-let test4 = fibonacciMemoize(2)
-let test5 = fibonacciMemoize(10)
-let test6 = fibonacciMemoize(1)
+let test4 = fibonacciMemoize(n: 2)
+let test5 = fibonacciMemoize(n: 10)
+let test6 = fibonacciMemoize(n: 1)
 
 // performance test
-//let performanceRecursive = fibonacciRecursive(60)
-//let performanceMemoize = fibonacciMemoize(60)
-//let performanceIterative = fibonacciIterative(60)
-
-
-
-
-
-
-
+//let performanceRecursive = fibonacciRecursive(n: 60)
+//let performanceMemoize = fibonacciMemoize(n: 60)
+//let performanceIterative = fibonacciIterative(n: 60)

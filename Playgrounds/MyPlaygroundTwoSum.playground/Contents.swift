@@ -1,4 +1,10 @@
-// John Ngoi
+// Author: John Ngoi
+// Book: Interviewing in Swift:
+// Algorithms and Data Structures:
+// Your guide in helping you prepare for the real world of software engineering interviews as an iOS or Mac OS developer.
+// Available on Amazon and Kindle! Search for "john ngoi" to find the book!
+// ASIN: B01L8DY5H6
+//
 // TwoSum problem
 // Given an array of numbers (at least 2), find the two number pairs that equal to a given sum.
 // For example.
@@ -22,7 +28,7 @@ func twoSum (numbers: [Int], sum: Int) -> [Int]? {
 
 // let's test!
 let test = [2, 6, 9, 5, 10, -7]
-let result1 = twoSum(test, sum: 15) // returns [9, 6]
-let result2 = twoSum(test, sum: 3) // returns [-7, 10]
-let result3 = twoSum(test, sum: 22) // returns nil
+let result1 = twoSum(numbers: test, sum: 15) // returns [9, 6]
+let result2 = twoSum(numbers: test, sum: 3) // returns [-7, 10]
+let result3 = twoSum(numbers: test, sum: 22) // returns nil
 
