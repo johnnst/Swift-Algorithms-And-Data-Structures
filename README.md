@@ -2,9 +2,9 @@
 
 This repo contains example code written in Swift to support my book; Interviewing in Swift: Algorithms and Data Structures.
 
-# Rerequisites.
+# Prerequisites.
 
-1. Xcode 7.3.1 + Swift 2.2
+1. Xcode 10.0 + Swift 4.2
 2. Book: [Interviewing in Swift: Algorithms and Data Structures](https://amzn.to/2LYUD0M) (available on Amazon for Kindle, just search for the title or my name; John Ngoi)
 
 
