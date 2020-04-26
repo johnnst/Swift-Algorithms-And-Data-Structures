@@ -41,19 +41,21 @@ let test2 = "((bba()"
 let test3 = "(((ew)))"
 let test4 = "(as)((bqw))"
 let test5 = "(("
-let test6 = ")("
+let test6 = ")()"
 let test7 = "((((((()))))))"
 let test8 = "(((((((())))))"
 let test9 = "()()()()()()"
 let test10 = "()((())())"
+let test11 = "))(("
 
-print(isValidParentheses(text: test1))
-print(isValidParentheses(text: test2))
-print(isValidParentheses(text: test3))
-print(isValidParentheses(text: test4))
-print(isValidParentheses(text: test5))
-print(isValidParentheses(text: test6))
-print(isValidParentheses(text: test7))
-print(isValidParentheses(text: test8))
-print(isValidParentheses(text: test9))
-print(isValidParentheses(text: test10))
+print(test1 + ": " + String(describing: isValidParentheses(text: test1)))
+print(test2 + ": " + String(describing: isValidParentheses(text: test2)))
+print(test3 + ": " + String(describing: isValidParentheses(text: test3)))
+print(test4 + ": " + String(describing: isValidParentheses(text: test4)))
+print(test5 + ": " + String(describing: isValidParentheses(text: test5)))
+print(test6 + ": " + String(describing: isValidParentheses(text: test6)))
+print(test7 + ": " + String(describing: isValidParentheses(text: test7)))
+print(test8 + ": " + String(describing: isValidParentheses(text: test8)))
+print(test9 + ": " + String(describing: isValidParentheses(text: test9)))
+print(test10 + ": " + String(describing: isValidParentheses(text: test10)))
+print(test11 + ": " + String(describing: isValidParentheses(text: test11)))
