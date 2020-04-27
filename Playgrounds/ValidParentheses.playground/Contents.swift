@@ -9,7 +9,7 @@
 //
 // Given a string with alphanumeric characters and parentheses, determine if the string has valid matching open and close parentheses.
 //
-// Swift 5.1.3
+// Swift 5.2.2
 
 func isValidParentheses(text: String) -> Bool {
     guard !text.isEmpty else { return true }
