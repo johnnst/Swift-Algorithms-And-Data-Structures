@@ -23,7 +23,7 @@
 func isPalindrome(_ text: String) -> Bool {
     guard !text.isEmpty else { return true }
     
-    let text = [Character](text) // copy to an array of Characters
+    let text = [Character](text) // easier to work with an array of characters than a String
     var i = 0
     var j = text.count - 1
     
@@ -41,6 +41,26 @@ func isPalindrome(_ text: String) -> Bool {
     return true
 }
 
+func isPalindromeSwift(_ text: String) -> Bool {
+    guard !text.isEmpty else { return true }
+    
+    var i = 0
+    var j = text.count - 1
+    
+    while i < j {
+        defer {
+            i += 1
+            j -= 1
+        }
+
+        if text[text.index(text.startIndex, offsetBy: i)] != text[text.index(text.startIndex, offsetBy: j)] {
+            return false
+        }
+    }
+    
+    return true
+}
+
 func printResults(_ input: String) {
     print("\(input) is \(isPalindrome(input))")
 }
@@ -51,3 +71,6 @@ printResults("a")
 printResults("bb")
 printResults("ccc")
 printResults("madam")
+
+isPalindromeSwift("dad")
+isPalindromeSwift("bad")
