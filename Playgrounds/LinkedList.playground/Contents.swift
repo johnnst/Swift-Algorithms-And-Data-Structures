@@ -85,6 +85,8 @@ print(nodes)
 
 /// Reverse a linked list
 ///
+/// Time O(n)
+/// Space O(1)
 /// - Parameter root: The root node of a linked list.
 /// - Returns: The new root node of the reversed linked list.
 func reverseLinkedList (root: Node?) -> Node? {
