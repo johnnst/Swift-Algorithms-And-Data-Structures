@@ -10,6 +10,18 @@
 // Given a string with alphanumeric characters and parentheses, determine if the string has valid matching open and close parentheses.
 //
 // Swift 5.2.2
+//
+// Strategy
+// We can use a stack to keep track if the string has valid open and close parentheses.
+// This takes up O(n) space.
+// We can further reduce the space complexity by simply using a counter.
+// The space is now constant, which reduces the space complexity to O(1).
+// For every open parenthesis, we +1. For every close parenthesis we -1.
+// If we ever encounter a situation where the counter is less than 0, it is impossible for that string to ever be valid.
+// In this condition, we return false.
+//
+// Time O(n)
+// Space O(1)
 
 func isValidParentheses(text: String) -> Bool {
     guard !text.isEmpty else { return true }
