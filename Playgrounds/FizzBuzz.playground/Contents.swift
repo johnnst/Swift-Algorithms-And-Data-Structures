@@ -21,7 +21,7 @@ func fizzBuzz (n: Int) -> String {
     }
     
     for i in 1 ... n {
-        if i % 3 == 0 && i % 5 == 0 {
+        if i % 3 == 0 && i % 5 == 0 { // Why do we check this first before the other conditions?
             results += " FizzBuzz"
         } else if i % 3 == 0 {
             results += " Fizz"
