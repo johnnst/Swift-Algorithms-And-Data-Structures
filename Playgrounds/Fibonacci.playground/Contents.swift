@@ -11,7 +11,9 @@
 // 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, ...
 
 
-// recursive, O(2^n)
+// Recursive approach
+// Time O(2^n)
+// Space O(n)
 func fibonacciRecursive (n: Int) -> Int {
     if n == 0 {
         return 0
@@ -24,7 +26,9 @@ func fibonacciRecursive (n: Int) -> Int {
 
 let test1 = fibonacciRecursive(n: 10)
 
-// iterative, O(n)
+// Iterative approach
+// Time O(n)
+// Space O(1)
 func fibonacciIterative (n: Int) -> Int {
     if n == 0 {
         return 0
@@ -48,7 +52,8 @@ let test2 = fibonacciIterative(n: 2)
 let test3 = fibonacciIterative(n: 10)
 
 // memoize, using a dictionary as the secret sauce to improve the recursive performance
-// performance is around O(n)
+// Time O(n)
+// Space O(n), due to the dictionary used
 var map = [0: 0, 1: 1]
 func fibonacciMemoize(n: Int) -> Int {
     if let value = map[n] {
