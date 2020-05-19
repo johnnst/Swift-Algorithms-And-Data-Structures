@@ -74,3 +74,33 @@ printResults("madam")
 
 isPalindromeSwift("dad")
 isPalindromeSwift("bad")
+
+extension String {
+    subscript(value: Int) -> Character {
+        return self[self.index(self.startIndex, offsetBy: value)]
+    }
+}
+
+
+func isPalindromeSwiftSubscript(_ text: String) -> Bool {
+    guard !text.isEmpty else { return true }
+    
+    var i = 0
+    var j = text.count - 1
+    
+    while i < j {
+        defer {
+            i += 1
+            j -= 1
+        }
+        if text[i] != text[j] {
+            return false
+        }
+    }
+    
+    return true
+}
+
+isPalindromeSwiftSubscript("dad")
+isPalindromeSwiftSubscript("bad")
+
