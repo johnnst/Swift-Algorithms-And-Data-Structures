@@ -51,3 +51,15 @@ var nums2 = [2, 5, 7]
 
 merge(&nums1, 3, nums2, 3)
 print(nums1)
+
+var nums3 = [4, 5, 0, 0, 0]
+var nums4 = [1, 2, 3]
+
+merge(&nums3, 2, nums4, 3)
+print(nums3)
+
+var nums5 = [4, 5, 9, 0, 0, 0, 0]
+var nums6 = [10, 12, 15, 17]
+
+merge(&nums5, 3, nums6, 4)
+print(nums5)
