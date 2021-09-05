@@ -129,7 +129,7 @@ class Blockchain {
         }
         let guess_hash = guess.sha256().hexDigest()
         print("validProof guess_hash = \(guess_hash)")
-        return guess_hash.prefix(4) == "0000"
+        return guess_hash.prefix(2) == "00"
     }
     
     /// Find a proof that is a valid proof.
@@ -162,6 +162,10 @@ class BlockchainServer {
         return blockchain.addTransactions(sender: sender, recipient: recipient, amount:amount)
     }
     
+    func createBlockWithTransactions(proof: Int) {
+        blockchain.addBlock(proof: proof)
+    }
+    
     /// Mines for coins.
     ///
     /// - Parameters:
@@ -175,7 +179,7 @@ class BlockchainServer {
             
             // Receive a reward for finding the proof.
             // The sender is "0" to signify that this block has mined a new coin.
-            self.blockchain.addTransactions(sender: "0", recipient: recipient, amount: 1)
+            self.blockchain.addTransactions(sender: "0", recipient: recipient, amount: Int.random(in: 1...100))
             
             // Create and add the new block to the chain.
             let block = self.blockchain.addBlock(proof: proof)
@@ -231,6 +235,18 @@ sendTransaction(amount: 3)
 sendTransaction(amount: 5)
 sendTransaction(amount: 1)
 
+//server.createBlockWithTransactions(proof: 9)
+//
+//sendTransaction(amount: 22)
+//sendTransaction(amount: 99)
+//
+//server.createBlockWithTransactions(proof: 8)
+
 mineForCoin { (block) in
+    mineForCoin { (block) in
+        mineForCoin { (block) in
+        
+        }
+    }
 }
 

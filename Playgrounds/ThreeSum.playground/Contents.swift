@@ -51,3 +51,35 @@ let result5 = ThreeSum(numbers: test, sum: 6) // returns nil
 
 
 
+class Solution {
+    func threeSum(_ nums: [Int]) -> [[Int]] {
+        guard nums.count > 2 else { return [] }
+        
+        var results = [[Int]]()
+        let nums = nums.sorted { $0 < $1 }
+        
+        for i in 0..<nums.count-2 {
+            if (i == 0 || (i > 0 && nums[i] != nums[i-1])) {
+                var j = i + 1
+                var k = nums.count - 1
+                let sum = 0 - nums[i]
+                
+                while j < k {
+                    if (nums[j] + nums[k]) == sum {
+                        results.append([nums[i], nums[j], nums[k]])
+                        while (j < k && nums[j] == nums[j + 1]) { j += 1 }
+                        while (j < k && nums[k] == nums[k - 1]) { k -= 1 }
+                        j += 1
+                        k -= 1
+                    } else if (nums[j] + nums[k]) > sum {
+                        k -= 1
+                    } else {
+                        j += 1
+                    }
+                }
+            }
+        }
+        
+        return results
+    }
+}
